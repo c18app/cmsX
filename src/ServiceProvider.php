@@ -15,7 +15,6 @@ class ServiceProvider extends SP
      */
     public function boot(Router $router)
     {
-//        Schema::defaultStringLength(191);
 //        $this->mergeConfigFrom(
 //            __DIR__.'/config/cmsx.php', 'cmsx'
 //        );
