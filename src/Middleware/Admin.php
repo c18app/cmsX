@@ -3,6 +3,7 @@
 namespace C18app\Cmsx\Middleware;
 
 use Closure;
+use \Illuminate\Support\Facades\Auth;
 
 class Admin
 {
@@ -16,7 +17,7 @@ class Admin
     public function handle($request, Closure $next)
     {
 
-        if (!\Illuminate\Support\Facades\Auth::user()->roles()->where('name', 'admin')->count()) {
+        if (!Auth::user()->roles()->where('name', 'admin')->count()) {
             return redirect('/');
         }
 
