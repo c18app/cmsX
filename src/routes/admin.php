@@ -1,16 +1,16 @@
 <?php
 
 Route::redirect('/', 'admin/dashboard');
-Route::get('dashboard', 'C18app\Cmsx\Controllers\Admin\AdminController@dashboard')->name('admin.dashboard');
+Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
 Route::resources([
-    'pages' => 'C18app\Cmsx\Controllers\Admin\PageController',
-    'tags' => 'C18app\Cmsx\Controllers\Admin\TagController',
-    'translates' => 'C18app\Cmsx\Controllers\Admin\TranslateController',
-    'articles' => 'C18app\Cmsx\Controllers\Admin\ArticleController'
+    'pages' => 'PageController',
+    'tags' => 'TagController',
+    'translates' => 'TranslateController',
+    'articles' => 'ArticleController'
 ]);
 
-Route::post('{type}/sort', 'C18app\Cmsx\Controllers\Admin\AdminController@sort')->name('admin.sort');
+Route::post('{type}/sort', 'AdminController@sort')->name('admin.sort');
 Route::view('tweet', Config('cmsx.app.template-admin') . '::nocontent')->name('admin.tweets');
 Route::view('content', Config('cmsx.app.template-admin') . '::nocontent')->name('admin.content');
 Route::view('comment', Config('cmsx.app.template-admin') . '::nocontent')->name('admin.comment');
