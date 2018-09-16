@@ -22,16 +22,16 @@ class ServiceProvider extends SP
 //        $this->loadViewsFrom(__DIR__.'/views/templates/default', 'cmsx-templates-default');
         $this->loadViewsFrom(__DIR__.'/views/admin/default', 'cmsx-templates-admin-default');
         $this->loadMigrationsFrom(__DIR__.'/Migrations');
-//
-//        // publishes
-//        $this->publishes([
-//            __DIR__.'/assets' => public_path('vendor/c18app/cmsx')
-//        ], 'c18app_cmsx');
-//
-//        $this->publishes([
-//            __DIR__.'/config/cmsx.php' => config_path('cmsx.php')
-//        ], 'c18app_cmsx-config');
-//
+
+        // publishes
+        $this->publishes([
+            __DIR__.'/assets' => public_path('vendor/c18app/cmsx')
+        ], 'c18app_cmsx');
+
+        $this->publishes([
+            __DIR__.'/config/cmsx.php' => config_path('cmsx.php')
+        ], 'c18app_cmsx-config');
+
 //        $this->publishes([
 //            __DIR__.'/views/templates/default/customizable' => resource_path('views/vendor/cmsx/templates/default/customizable')
 //        ], 'c18app_cmsx-templates-default-custom');

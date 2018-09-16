@@ -8,11 +8,9 @@
     <title>Admin</title>
 
     <link href="/vendor/c18app/cmsx/fontawesome/5.0.6/css/fontawesome-all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/app.css">
-    <script src="/js/app.js"></script>
-
-    <link rel="stylesheet" href="/vendor/c18app/cmsx/jquery/ui/1.12.1/themes/base/jquery-ui.min.css">
-    <script src="/vendor/c18app/cmsx/jquery/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="/vendor/c18app/cmsx/css/bootstrap.css">
+    <script src="/vendor/c18app/cmsx/js/jquery-3.3.1.js"></script>
+    <script src="/vendor/c18app/cmsx/js/bootstrap.bundle.js"></script>
 
     <link rel="stylesheet" href="/vendor/c18app/cmsx/css/backend/app.css">
     <script src="/vendor/c18app/cmsx/js/backend/app.js"></script>
