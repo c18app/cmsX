@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
 .handle div.drag {
     width: 7px;
     min-height: 25px;
@@ -46,8 +48,4 @@ body {
 .nav > li > a:focus,
 .nav > li > a:hover {
     background-color: #eee;
-}
-
-textarea#content.form-control {
-    height: 25em;
 }
