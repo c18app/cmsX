@@ -49,3 +49,15 @@ body {
 .nav > li > a:hover {
     background-color: #eee;
 }
+
+.handle div.drag {
+    width: 7px;
+    min-height: 25px;
+    margin-right: 4px;
+    background: 0 0 transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAgMAAADwAc52AAAAA3NCSVQICAjb4U/gAAAACVBMVEWZmZn////MzMwyR5LcAAAACXBIWXMAAAsSAAALEgHS3X78AAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M1cbXjNgAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMS8xMy8xN9yqzvYAAAARSURBVAiZY2B1YFB1YAiFIgAPpwJqzAWWIwAAAABJRU5ErkJggg==') repeat;
+    margin-bottom: 2px;
+    cursor: move;
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+}
