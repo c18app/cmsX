@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use C18app\Cmsx\Migrations\Base as Migration;
 
-class CreateCmsxPagesTable extends Migration
+class CreateCmsxArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCmsxPagesTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->table_prefix . 'pages', function (Blueprint $table) {
+        Schema::create($this->table_prefix . 'articles', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->softDeletes();
@@ -28,6 +28,7 @@ class CreateCmsxPagesTable extends Migration
             $table->string('og_title')->nullable();
             $table->text('og_description')->nullable();
             $table->string('og_image')->nullable();
+            $table->string('thumb')->nullable();
         });
     }
 
@@ -38,6 +39,6 @@ class CreateCmsxPagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->table_prefix . 'pages');
+        Schema::dropIfExists($this->table_prefix . 'articles');
     }
 }
