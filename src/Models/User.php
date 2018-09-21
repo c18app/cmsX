@@ -2,8 +2,7 @@
 
 namespace C18app\Cmsx\Models;
 
-use C18app\Cmsx\Models\Base as Model;
-use C18app\Cmsx\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends \App\User
 {
