@@ -32,11 +32,11 @@
 @include(Config('cmsx.app.template-admin').'::@topmenu')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-2 sidebar">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 sidebar">
             @include(Config('cmsx.app.template-admin').'::@leftmenu')
         </div>
 
-        <div class="col-lg-10 col-lg-offset-2">
+        <div class="col-6 offset-6 col-sm-8 offset-sm-4 col-md-9 offset-md-3 col-lg-10 offset-lg-2">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
