@@ -5,15 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Admin</title>
+    @if(App::environment('local'))
+        <title>Admin - DEVELOPMENT</title>
 
-    <link href="/vendor/c18app/cmsx/fontawesome/5.0.6/css/fontawesome-all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/vendor/c18app/cmsx/css/bootstrap.css">
-    <script src="/vendor/c18app/cmsx/js/jquery-3.3.1.js"></script>
-    <script src="/vendor/c18app/cmsx/js/bootstrap.bundle.js"></script>
+        <link href="/vendor/c18app/cmsx/fontawesome/5.0.6/css/fontawesome-all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/vendor/c18app/cmsx/css/bootstrap.css">
+        <script src="/vendor/c18app/cmsx/js/jquery-3.3.1.js"></script>
+        <script src="/vendor/c18app/cmsx/js/bootstrap.bundle.js"></script>
 
-    <link rel="stylesheet" href="/vendor/c18app/cmsx/css/backend/app.css">
-    <script src="/vendor/c18app/cmsx/js/backend/app.js"></script>
+        <link rel="stylesheet" href="/vendor/c18app/cmsx/css/backend/app.css?v={{ time() }}">
+        <script src="/vendor/c18app/cmsx/js/backend/app.js?v={{ time() }}"></script>
+    @else
+        <title>Admin</title>
+
+        <link href="/vendor/c18app/cmsx/fontawesome/5.0.6/css/fontawesome-all.min.css?v={{ config('cmsx.version') }}" rel="stylesheet">
+        <link rel="stylesheet" href="/vendor/c18app/cmsx/css/bootstrap.min.css?v={{ config('cmsx.version') }}">
+        <script src="/vendor/c18app/cmsx/js/jquery-3.3.1.min.js?v={{ config('cmsx.version') }}"></script>
+        <script src="/vendor/c18app/cmsx/js/bootstrap.bundle.min.js?v={{ config('cmsx.version') }}"></script>
+
+        <link rel="stylesheet" href="/vendor/c18app/cmsx/css/backend/app.css?v={{ config('cmsx.version') }}">
+        <script src="/vendor/c18app/cmsx/js/backend/app.js?v={{ config('cmsx.version') }}"></script>
+    @endif
+
 </head>
 <body class="admin">
 @include(Config('cmsx.app.template-admin').'::@topmenu')

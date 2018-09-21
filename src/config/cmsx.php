@@ -7,5 +7,6 @@ return [
         'template' => 'cmsx-templates-default',
         'template-admin' => 'cmsx-templates-admin-default',
         'template-custom' => 'vendor.cmsx.templates.default.customizable.'
-    ]
+    ],
+    'version' => '0.0.1'
 ];
