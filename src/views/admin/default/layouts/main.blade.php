@@ -13,8 +13,8 @@
         <script src="/vendor/c18app/cmsx/js/jquery-3.3.1.js"></script>
         <script src="/vendor/c18app/cmsx/js/bootstrap.bundle.js"></script>
 
-        <link rel="stylesheet" href="/vendor/c18app/cmsx/css/backend/app.css?v={{ time() }}">
-        <script src="/vendor/c18app/cmsx/js/backend/app.js?v={{ time() }}"></script>
+        <link rel="stylesheet" href="/vendor/c18app/cmsx/css/admin/app.css?v={{ time() }}">
+        <script src="/vendor/c18app/cmsx/js/admin/app.js?v={{ time() }}"></script>
     @else
         <title>Admin</title>
 
@@ -23,8 +23,8 @@
         <script src="/vendor/c18app/cmsx/js/jquery-3.3.1.min.js?v={{ config('cmsx.version') }}"></script>
         <script src="/vendor/c18app/cmsx/js/bootstrap.bundle.min.js?v={{ config('cmsx.version') }}"></script>
 
-        <link rel="stylesheet" href="/vendor/c18app/cmsx/css/backend/app.css?v={{ config('cmsx.version') }}">
-        <script src="/vendor/c18app/cmsx/js/backend/app.js?v={{ config('cmsx.version') }}"></script>
+        <link rel="stylesheet" href="/vendor/c18app/cmsx/css/admin/app.css?v={{ config('cmsx.version') }}">
+        <script src="/vendor/c18app/cmsx/js/admin/app.js?v={{ config('cmsx.version') }}"></script>
     @endif
 
 </head>
