@@ -8,12 +8,15 @@ trait PrefixModelTableName
 {
     protected $table_prefix = '';
 
+    public function getTablePrefix()
+    {
+        return \Config::get('cmsx.table_prefix');
+    }
+
     public function getTable()
     {
-        $this->table_prefix = \Config::get('cmsx.table_prefix');
-
         if (!isset($this->table)) {
-            return $this->table_prefix . str_replace('\\', '', Str::snake(Str::plural(class_basename($this))));
+            return $this->getTablePrefix() . str_replace('\\', '', Str::snake(Str::plural(class_basename($this))));
         }
 
         return $this->table;

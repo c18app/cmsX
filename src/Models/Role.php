@@ -14,6 +14,6 @@ class Role extends Model
 
     public function users()
     {
-        return $this->belongsToMany('C18app\Cmsx\Models\User', $this->table_prefix.'role_user')->withTimestamps();
+        return $this->belongsToMany('C18app\Cmsx\Models\User', $this->getTablePrefix().'role_user')->withTimestamps();
     }
 }

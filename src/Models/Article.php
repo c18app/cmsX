@@ -28,7 +28,7 @@ class Article extends Model
 
     public function tags()
     {
-        return $this->morphToMany('C18app\Cmsx\Models\Tag', 'taggable', $this->table_prefix . 'taggables');
+        return $this->morphToMany('C18app\Cmsx\Models\Tag', 'taggable', $this->getTablePrefix() . 'taggables');
     }
 
     public function scopePublished($query)

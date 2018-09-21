@@ -19,11 +19,11 @@ class Tag extends Model
 
     public function pages()
     {
-        return $this->morphedByMany('C18app\Cmsx\Models\Page', 'taggable', $this->table_prefix . 'taggables');
+        return $this->morphedByMany('C18app\Cmsx\Models\Page', 'taggable', $this->getTablePrefix() . 'taggables');
     }
 
     public function articles()
     {
-        return $this->morphedByMany('C18app\Cmsx\Models\Article', 'taggable', $this->table_prefix . 'taggables');
+        return $this->morphedByMany('C18app\Cmsx\Models\Article', 'taggable', $this->getTablePrefix() . 'taggables');
     }
 }
