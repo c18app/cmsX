@@ -2,12 +2,13 @@
 
 namespace C18app\Cmsx\Models;
 
-use C18app\Cmsx\Models\Base as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use C18app\Cmsx\Traits\Sort;
 
 class Article extends Model
 {
+    use \C18app\Cmsx\Traits\PrefixModelTableName;
     use SoftDeletes;
     use Sort;
 

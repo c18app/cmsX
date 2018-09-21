@@ -2,10 +2,12 @@
 
 namespace C18app\Cmsx\Models;
 
-use C18app\Cmsx\Models\Base as Model;
+use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
+    use \C18app\Cmsx\Traits\PrefixModelTableName;
+
     protected $fillable = [
         'title',
         'invisible'
