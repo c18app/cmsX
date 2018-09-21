@@ -8,12 +8,12 @@
     <div class="collapse navbar-collapse navbar-expand" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link py-0" href="{{ route('homepage') }}">Homepage</a>
+                <a class="nav-link" href="{{ route('homepage') }}">Homepage</a>
             </li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link py-0" href="{{ route('logout') }}">Logout</a>
+                <a class="nav-link" href="{{ route('logout') }}">Logout</a>
             </li>
         </ul>
     </div>
