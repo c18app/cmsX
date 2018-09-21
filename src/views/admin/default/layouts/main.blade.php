@@ -18,7 +18,8 @@
     @else
         <title>Admin</title>
 
-        <link href="/vendor/c18app/cmsx/fontawesome/5.0.6/css/fontawesome-all.min.css?v={{ config('cmsx.version') }}" rel="stylesheet">
+        <link href="/vendor/c18app/cmsx/fontawesome/5.0.6/css/fontawesome-all.min.css?v={{ config('cmsx.version') }}"
+              rel="stylesheet">
         <link rel="stylesheet" href="/vendor/c18app/cmsx/css/bootstrap.min.css?v={{ config('cmsx.version') }}">
         <script src="/vendor/c18app/cmsx/js/jquery-3.3.1.min.js?v={{ config('cmsx.version') }}"></script>
         <script src="/vendor/c18app/cmsx/js/bootstrap.bundle.min.js?v={{ config('cmsx.version') }}"></script>
@@ -26,7 +27,6 @@
         <link rel="stylesheet" href="/vendor/c18app/cmsx/css/admin/app.css?v={{ config('cmsx.version') }}">
         <script src="/vendor/c18app/cmsx/js/admin/app.js?v={{ config('cmsx.version') }}"></script>
     @endif
-
 </head>
 <body class="admin">
 @include(Config('cmsx.app.template-admin').'::@topmenu')
