@@ -22,10 +22,10 @@ composer create-project --prefer-dist laravel/laravel <dirname>
 ```
 - zavolat
 ```
-composer require "vendor/packagename @dev"
+composer require "c18app/cmsx @dev"
 ```
 ```
-composer update vendor/packagename --prefer-source
+composer update c18app/cmsx --prefer-source
 ```
 Laravel autentikace (doporučuju vždy)
 ```
