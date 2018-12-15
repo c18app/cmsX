@@ -5,7 +5,11 @@
 ## Instalace Laravel
 
 ```
-composer create-project --prefer-dist laravel/laravel <dirname>
+composer create-project --prefer-dist laravel/laravel <appname>
+```
+
+```
+git clone git@github.com:c18app/cmsx.git <reponame>
 ```
 
 - přidat do composeru
