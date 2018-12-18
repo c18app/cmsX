@@ -32,6 +32,8 @@ class ServiceProvider extends SP
             __DIR__.'/config/cmsx.php' => config_path('cmsx.php')
         ], 'c18app_cmsx-config');
 
+        $this->app->register(SeedServiceProvider::class);
+
 //        $this->publishes([
 //            __DIR__.'/views/templates/default/customizable' => resource_path('views/vendor/cmsx/templates/default/customizable')
 //        ], 'c18app_cmsx-templates-default-custom');

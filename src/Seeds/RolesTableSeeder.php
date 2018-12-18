@@ -1,0 +1,20 @@
+<?php
+
+namespace C18app\Cmsx\Seeds;
+
+use Illuminate\Database\Seeder;
+
+class RolesTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        \DB::table(\Config::get('cmsx.table_prefix') . 'roles')->insert([
+            'name' => 'superadmin'
+        ]);
+    }
+}

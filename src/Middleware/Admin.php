@@ -17,7 +17,7 @@ class Admin
     public function handle($request, Closure $next)
     {
 
-        if (!Auth::user()->roles()->where('name', 'admin')->count()) {
+        if (!Auth::user()->roles()->where('name', 'superadmin')->count()) {
             return redirect('/');
         }
 

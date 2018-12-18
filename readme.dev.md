@@ -61,8 +61,8 @@ config
     - providers/users/model => C18app\Cmsx\Models\User::class    
 
 ```
-php artisan migrate
-#php artisan migrate:fresh
+php artisan migrate --seed
+#php artisan migrate:fresh --seed
 ```
 vyprázdnit
 - public/css/app.css
