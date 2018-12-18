@@ -1,72 +1,47 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace C18app\Cmsx\Controllers\Auth;
 
-use App\User;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Auth\RegisterController as RC;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use C18app\Cmsx\Models\Role;
+use C18app\Cmsx\Models\User;
+use Illuminate\Support\Facades\Request;
 
-class RegisterController extends Controller
+class RegisterController extends RC
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
+    protected $redirectTo = '/';
 
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        if (User::all()->count() == 1) {
+            $admin_role = Role::where('name', 'superadmin')->first();
+            if(!$admin_role) {
+                Request::session()->flash('error',
+                    'Uživatel byl úspěšně vytvořený! Nepodasřilo se vytvořit superadministrátorský přístup!');
+            } else {
+                $user->roles()->attach($admin_role);
+                $this->redirectTo = 'admin/dashboard';
+                Request::session()->flash('confirm',
+                    'Uživatel byl úspěšně vytvořený! Jako první uživatel máte superadministrátorský přístup!');
+            }
+        } else {
+            Request::session()->flash('confirm', 'Uživatel byl úspěšně vytvořený!');
+        }
+
+        return $user;
+    }
+
+    public function showRegistrationForm()
+    {
+        return view(Config('cmsx.app.template') . '::auth.register');
     }
 }
