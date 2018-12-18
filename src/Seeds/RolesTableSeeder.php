@@ -13,8 +13,11 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table(\Config::get('cmsx.table_prefix') . 'roles')->insert([
-            'name' => 'superadmin'
-        ]);
+        // check if role superadmin exists
+        if(is_null(\DB::table(\Config::get('cmsx.table_prefix') . 'roles')->where('name', 'superadmin')->first())) {
+            \DB::table(\Config::get('cmsx.table_prefix') . 'roles')->insert([
+                'name' => 'superadmin'
+            ]);
+        }
     }
 }
