@@ -19,7 +19,7 @@ class ServiceProvider extends SP
             __DIR__.'/config/cmsx.php', 'cmsx'
         );
         $this->loadRoutesFrom(__DIR__.'/routes.php');
-//        $this->loadViewsFrom(__DIR__.'/views/templates/default', 'cmsx-templates-default');
+        $this->loadViewsFrom(__DIR__.'/views/templates/default', 'cmsx-templates-default');
         $this->loadViewsFrom(__DIR__.'/views/admin/default', 'cmsx-templates-admin-default');
         $this->loadMigrationsFrom(__DIR__.'/Migrations');
 

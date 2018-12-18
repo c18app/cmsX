@@ -1,0 +1,1 @@
+@includeFirst([Config('cmsx.app.template-custom').'homepage', Config('cmsx.app.template').'::customizable.homepage'])
