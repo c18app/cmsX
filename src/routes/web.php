@@ -21,4 +21,4 @@ Route::get('article/{id}-{slug}', 'CmsController@article')->name('cms.article');
 
 Route::get('/', 'CmsController@index')->name('homepage');
 
-Auth::routes();
+Auth::routes(['verify' => true]);

@@ -1,6 +1,6 @@
 <?php
 
-Route::middleware(['web', 'auth', 'C18app\Cmsx\Middleware\Admin'])
+Route::middleware(['web', 'auth', 'verified', 'C18app\Cmsx\Middleware\Admin'])
     ->prefix('admin')
     ->namespace('C18app\Cmsx\Controllers\Admin')
     ->group(__DIR__ . ('/routes/admin.php'));
