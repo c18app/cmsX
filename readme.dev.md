@@ -74,7 +74,7 @@ composer require barryvdh/laravel-debugbar --dev
 ```
 
 zakomentovat
-- routes/web.php... řádek pro GET /
+- routes/web.php... celé zakomentovat
 
 ## Nastavit v PHP Stormu
 
