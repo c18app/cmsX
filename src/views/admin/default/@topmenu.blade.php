@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse navbar-expand" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('homepage') }}">Homepage</a>
+                <a class="nav-link" href="{{ route('home') }}">Homepage</a>
             </li>
         </ul>
         <ul class="navbar-nav">
