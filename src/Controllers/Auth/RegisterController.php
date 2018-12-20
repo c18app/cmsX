@@ -16,11 +16,7 @@ class RegisterController extends RC
 
     protected function create(array $data)
     {
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $user = parent::create($data);
 
         if (User::all()->count() == 1) {
             $admin_role = Role::where('name', 'superadmin')->first();
@@ -28,7 +24,7 @@ class RegisterController extends RC
                 Request::session()->flash('error',
                     'Uživatel byl úspěšně vytvořený! Nepodasřilo se vytvořit superadministrátorský přístup!');
             } else {
-                $user->roles()->attach($admin_role);
+                $admin_role->users()->attach($user->id);
                 $this->redirectTo = 'admin/dashboard';
                 Request::session()->flash('confirm',
                     'Uživatel byl úspěšně vytvořený! Jako první uživatel máte superadministrátorský přístup!');
