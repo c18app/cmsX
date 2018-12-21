@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends(config('cmsx.app.template').'::layouts.app')
 
 @section('content')
 <div class="container">
