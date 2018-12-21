@@ -82,10 +82,10 @@ zakomentovat
 
 ```
 File type: Less Style Sheet
-Scope: nastavit na cestu <REPO>:src/assets/less/*
+Scope: nastavit na cestu <REPO>:src/assets/less/*/*
 
 Program: nastavit na less.cmd
-Arguments: $FileName$ ..\css\admin\$FileNameWithoutExtension$.css --source-map
+Arguments: $FileName$ $FileName$ ..\..\css\$FileDirName$\$FileNameWithoutExtension$.css --source-map
 Output paths to refresh: $FileNameWithoutExtension$.css:$FileNameWithoutExtension$.css.map
 
 Advanced
