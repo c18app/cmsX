@@ -3,7 +3,7 @@
 namespace C18app\Cmsx\Controllers\Auth;
 
 use App\Http\Controllers\Auth\LoginController as LC;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends LC
 {
@@ -11,6 +11,13 @@ class LoginController extends LC
 
     public function showLoginForm()
     {
-        return view(Config('cmsx.app.template').'::auth.login');
+        return view(Config('cmsx.app.template') . '::auth.login');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->roles()->whereIn('name', ['owner', 'admin'])->count()) {
+            $this->redirectTo = '/admin/dashboard';
+        }
     }
 }
