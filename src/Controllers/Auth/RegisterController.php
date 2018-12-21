@@ -19,15 +19,15 @@ class RegisterController extends RC
         $user = parent::create($data);
 
         if (User::all()->count() == 1) {
-            $admin_role = Role::where('name', 'superadmin')->first();
+            $admin_role = Role::where('name', 'owner')->first();
             if(!$admin_role) {
                 Request::session()->flash('error',
-                    'Uživatel byl úspěšně vytvořený! Nepodasřilo se vytvořit superadministrátorský přístup!');
+                    'Uživatel byl úspěšně vytvořený! Nepodařilo se vytvořit uživatele s rolí owner!');
             } else {
                 $admin_role->users()->attach($user->id);
                 $this->redirectTo = 'admin/dashboard';
                 Request::session()->flash('confirm',
-                    'Uživatel byl úspěšně vytvořený! Jako první uživatel máte superadministrátorský přístup!');
+                    'Uživatel byl úspěšně vytvořený! Jako první uživatel máte roli owner!');
             }
         } else {
             Request::session()->flash('confirm', 'Uživatel byl úspěšně vytvořený!');

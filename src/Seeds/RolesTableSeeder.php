@@ -3,6 +3,7 @@
 namespace C18app\Cmsx\Seeds;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 
 class RolesTableSeeder extends Seeder
 {
@@ -13,10 +14,12 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        // check if role superadmin exists
-        if(is_null(\DB::table(\Config::get('cmsx.table_prefix') . 'roles')->where('name', 'superadmin')->first())) {
+        // check if role owner exists
+        if(is_null(\DB::table(\Config::get('cmsx.table_prefix') . 'roles')->where('name', 'owner')->first())) {
             \DB::table(\Config::get('cmsx.table_prefix') . 'roles')->insert([
-                'name' => 'superadmin'
+                ['name' => 'owner', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+                ['name' => 'admin', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+                ['name' => 'guest', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ]);
         }
     }
