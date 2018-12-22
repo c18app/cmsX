@@ -16,7 +16,9 @@
         <script src="/vendor/c18app/cmsx/js/bootstrap.bundle.js"></script>
 
         <link rel="stylesheet" href="/vendor/c18app/cmsx/css/app/app.css?v={{ time() }}">
+        <script src="/css/app.css?v={{ time() }}"></script>
         <script src="/vendor/c18app/cmsx/js/app/app.js?v={{ time() }}"></script>
+        <script src="/js/app.js?v={{ time() }}"></script>
     @else
         <title>{{ config('app.name', 'CmsX') }}</title>
 
@@ -27,7 +29,9 @@
         <script src="/vendor/c18app/cmsx/js/bootstrap.bundle.min.js?v={{ config('cmsx.version') }}"></script>
 
         <link rel="stylesheet" href="/vendor/c18app/cmsx/css/app/app.css?v={{ config('cmsx.version') }}">
+        <script src="/css/app.css?v={{ config('cmsx.version') . '.' . env('APP_VERSION') }}"></script>
         <script src="/vendor/c18app/cmsx/js/app/app.js?v={{ config('cmsx.version') }}"></script>
+        <script src="/js/app.js?v={{ config('cmsx.version') . '.' . env('APP_VERSION') }}"></script>
     @endif
 </head>
 <body class="app">

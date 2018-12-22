@@ -1,5 +1,5 @@
 <?php
 
-Route::view('/', config('cmsx.app.template').'::home')->name('home');
+Route::view('/', config('cmsx.app.template').'::cmsx')->name('cmsx');
 
 Auth::routes(['verify' => true]);
