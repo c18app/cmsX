@@ -4,6 +4,7 @@ namespace C18app\Cmsx\Controllers\Auth;
 
 use App\Http\Controllers\Auth\LoginController as LC;
 use Illuminate\Http\Request;
+use C18app\Cmsx\Models\User;
 
 class LoginController extends LC
 {
@@ -11,6 +12,10 @@ class LoginController extends LC
 
     public function showLoginForm()
     {
+        if(User::count()==0) {
+            return redirect()->route('home');
+        }
+
         return view(Config('cmsx.app.template') . '::auth.login');
     }
 

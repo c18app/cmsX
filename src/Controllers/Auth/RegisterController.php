@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use C18app\Cmsx\Models\Role;
 use C18app\Cmsx\Models\User;
 use Illuminate\Support\Facades\Request;
+use C18app\Cmsx\Models\User;
 
 class RegisterController extends RC
 {
@@ -42,6 +43,10 @@ class RegisterController extends RC
 
     public function showRegistrationForm()
     {
+        if(User::count()==0) {
+            return redirect()->route('home');
+        }
+
         return view(Config('cmsx.app.template') . '::auth.register');
     }
 }
