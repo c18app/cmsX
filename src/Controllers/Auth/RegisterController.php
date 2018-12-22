@@ -9,7 +9,6 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use C18app\Cmsx\Models\Role;
 use C18app\Cmsx\Models\User;
 use Illuminate\Support\Facades\Request;
-use C18app\Cmsx\Models\User;
 
 class RegisterController extends RC
 {

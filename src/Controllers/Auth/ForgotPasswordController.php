@@ -3,7 +3,6 @@
 namespace C18app\Cmsx\Controllers\Auth;
 
 use App\Http\Controllers\Auth\ForgotPasswordController as FPC;
-use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use C18app\Cmsx\Models\User;
 
 class ForgotPasswordController extends FPC
