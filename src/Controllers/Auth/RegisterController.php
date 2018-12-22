@@ -16,7 +16,11 @@ class RegisterController extends RC
 
     protected function create(array $data)
     {
-        $user = parent::create($data);
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
 
         if (User::all()->count() == 1) {
             $admin_role = Role::where('name', 'owner')->first();
