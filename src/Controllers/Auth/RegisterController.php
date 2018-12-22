@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use C18app\Cmsx\Models\Role;
 use C18app\Cmsx\Models\User;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Carbon;
 
 class RegisterController extends RC
 {
@@ -24,17 +25,27 @@ class RegisterController extends RC
 
         if (User::all()->count() == 1) {
             $admin_role = Role::where('name', 'owner')->first();
-            if(!$admin_role) {
+            if (!$admin_role) {
                 Request::session()->flash('error',
                     'Uživatel byl úspěšně vytvořený! Nepodařilo se vytvořit uživatele s rolí owner!');
             } else {
-                $admin_role->users()->attach($user->id);
+                $user->roles()->attach($admin_role->id);
+                $user->email_verified_at = Carbon::now();
+                $user->save();
                 $this->redirectTo = 'admin/dashboard';
                 Request::session()->flash('confirm',
                     'Uživatel byl úspěšně vytvořený! Jako první uživatel máte roli owner!');
             }
         } else {
-            Request::session()->flash('confirm', 'Uživatel byl úspěšně vytvořený!');
+            $guest_role = Role::where('name', 'guest')->first();
+            if (!$guest_role) {
+                Request::session()->flash('error',
+                    'Uživatel byl úspěšně vytvořený! Nepodařilo se vytvořit uživatele s rolí guest!');
+            } else {
+                $user->roles()->attach($guest_role->id);
+                Request::session()->flash('confirm',
+                    'Uživatel byl úspěšně vytvořený s rolí quest!');
+            }
         }
 
         return $user;
@@ -42,7 +53,7 @@ class RegisterController extends RC
 
     public function showRegistrationForm()
     {
-        if(User::count()==0) {
+        if (User::count() == 0) {
             return redirect()->route('home');
         }
 
