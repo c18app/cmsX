@@ -1,6 +1,6 @@
 <p align="center">CmsX - Demo</p>
 
-# vytvoření aplikace pro testování package
+# vytvoření aplikace
 
 ## Instalace Laravel
 
@@ -8,26 +8,20 @@
 composer create-project --prefer-dist laravel/laravel <appname>
 ```
 
-- přidat do composeru
+## Vytvoření gitu
+
+přepnout se do adresáře <dev_app_name>
 ```
-"repositories": [
-    {
-        "type": "path",
-        "url": "../path/to/your/package",
-        "options": {
-            "symlink": true
-        }
-    }
-]
+git init
+git add .
+git commit -m "initial commit"
 ```
-- zavolat
+
+- přidat CMSX
 ```
-composer require "c18app/cmsx @dev"
+composer require "c18app/cmsx 0.0.1"
 ```
-```
-composer update c18app/cmsx --prefer-source
-```
-Laravel autentikace (doporučuju vždy)
+Laravel autentikace
 ```
 php artisan make:auth
 ```
@@ -48,8 +42,8 @@ config
     - providers/users/model => C18app\Cmsx\Models\User::class    
 
 ```
-php artisan migrate
-#php artisan migrate:fresh
+php artisan migrate --seed
+#php artisan migrate:fresh --seed
 ```
 vyprázdnit
 - public/css/app.css
@@ -60,8 +54,8 @@ nainstalovat
 composer require barryvdh/laravel-debugbar --dev
 ```
 
-zakomentovat
-- routes/web.php... řádek pro GET /
+upravit:
+- routes/web.php
 
 vypublikovat
 ```
