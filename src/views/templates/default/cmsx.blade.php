@@ -39,7 +39,15 @@
                         <div class="card-header">Jak začít</div>
                         <div class="card-body">
                             <ol>
-                                <li>Vytvořte laravel aplikaci a jako šablonu použijte &#64;extends(config('cmsx.app.template').'::layouts.app')</li>
+                                <li>Vytvořte laravel aplikaci a jako šablonu použijte
+                                    <pre>
+
+&#64;extends(config('cmsx.app.template').'::layouts.app')
+&#64;section('content')
+   ...
+&#64endsection
+                                    </pre>
+                                </li>
                             </ol>
                         </div>
                     </div>
