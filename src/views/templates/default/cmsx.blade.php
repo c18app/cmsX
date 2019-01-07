@@ -24,6 +24,7 @@
             </div>
         </div>
     @endif
+
     <div class="container mt-5 mb-3">
         <div class="row">
             <div class="col-12 text-center">
@@ -31,7 +32,16 @@
             </div>
         </div>
     </div>
-    @if($user->count())
+
+    @php
+        try {
+            $user_count = $user->count();
+        } catch (\Exception $e) {
+            $user_count = false;
+        }
+    @endphp
+
+    @if($user_count)
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -45,7 +55,7 @@
 &#64;extends(config('cmsx.app.template').'::layouts.app')
 &#64;section('content')
    ...
-&#64endsection
+&#64;endsection
                                     </pre>
                                 </li>
                             </ol>
@@ -58,6 +68,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
+                    @include(config('cmsx.app.template').'::@check')
                     <ul>
                         <li>Aplikace nemá žádného uživatele. Zaregistrujte se jako vlastník.</li>
                     </ul>
